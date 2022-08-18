@@ -10,11 +10,21 @@
 
 <script>
 export default {
-  props:['msg'],
+  props:{
+    msg: String,
+    start: {
+      type: Number,
+      // required: true,
+      default: 10,
+      validator( value ){
+        return value > 0
+      }
+    },
+  },
   //name: 'Counter'
   data() {
     return {
-      counter: 5
+      counter: this.start
     }
   },
   methods: {
